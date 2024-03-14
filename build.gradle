@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'org.hibernate.orm', name: 'hibernate-core', version: '6.4.4.Final'
+    implementation group: 'org.flywaydb', name: 'flyway-core', version: '10.9.1'
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.1.0-M2'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
+    implementation(files("lib/h2-2.2.220.jar"))
+}
+
+test {
+    useJUnitPlatform()
+}
